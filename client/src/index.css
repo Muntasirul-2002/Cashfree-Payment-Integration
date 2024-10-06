@@ -1,0 +1,82 @@
+.success {
+  display: block; 
+  margin: 0 auto; 
+  max-width: 100%; 
+  height: auto; 
+}
+
+.container{
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  
+}
+
+/* Main card container */
+.product-card {
+  max-width: 300px; /* Maximum width for the card */
+  width: 100%; /* Full width on smaller screens */
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  margin: 16px auto; /* Centering the card */
+  padding: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for card */
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image styling */
+.product-image {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+/* Title styling */
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Price styling */
+.product-price {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* Buy Now button styling */
+.buy-button {
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.buy-button:hover {
+  background-color: #ff4500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-card {
+    max-width: 100%;
+  }
+}
