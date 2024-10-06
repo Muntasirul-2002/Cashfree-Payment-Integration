@@ -6,7 +6,26 @@ import dotenv from "dotenv";
 
 dotenv.config()
 const app = express();
-app.use(cors());
+const allowedOrigins = [
+    "https://cashfree-payment-integration-server.vercel.app/",
+    "https://cashfree-payment-integration-server.vercel.app",
+    "http://cashfree-payment-integration-server.vercel.app/",
+    "https://cashfree-payment-integration-client.vercel.app/",
+    "https://cashfree-payment-integration-client.vercel.app",
+    "http://cashfree-payment-integration-client.vercel.app/",
+    undefined
+]
+const corsOptions = {
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Not allowed by CORS from origin : ${origin}`));
+      }
+    },
+    credentials: true,
+  };
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extends: true }));
 
@@ -41,7 +60,7 @@ app.get("/payment", async (req, res) => {
         customer_phone: "6294268784",
       },
       order_meta: {
-        return_url: `http://localhost:5173/success`,
+        return_url: `https://cashfree-payment-integration-client.vercel.app/success`,
         payment_methods: "cc,dc,upi",
       },
       order_tags: {

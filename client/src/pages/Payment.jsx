@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { load } from "@cashfreepayments/cashfree-js";
-const Payment = () => {
+const Payment = ({backend_url}) => {
   const [orderId, setOrderId] = useState("");
 
   let cashfree;
@@ -14,7 +14,7 @@ const Payment = () => {
 
   const getSessionId = async () => {
     try {
-      let res = await axios.get("http://localhost:8080/payment");
+      let res = await axios.get(`${backend_url}/payment`);
       if (res.data && res.data.payment_session_id) {
         console.log(res.data.payment_session_id);
         setOrderId(res.data.order_id);
@@ -27,7 +27,7 @@ const Payment = () => {
 
   const verifyPayment = async() =>{
     try {
-        let res = await axios.post("http://localhost:8080/verify",{
+        let res = await axios.post(`${backend_url}/verify`,{
             orderId: orderId,
         })
         if(res && res.data){
