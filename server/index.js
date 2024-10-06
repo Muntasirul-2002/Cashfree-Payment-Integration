@@ -60,7 +60,7 @@ app.get("/payment", async (req, res) => {
         customer_phone: "6294268784",
       },
       order_meta: {
-        return_url: `https://cashfree-payment-integration-client.vercel.app/success`,
+        return_url: `https://i.pinimg.com/originals/0d/e4/1a/0de41a3c5953fba1755ebd416ec109dd.gif`,
         payment_methods: "cc,dc,upi",
       },
       order_tags: {
